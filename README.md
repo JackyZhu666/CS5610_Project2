@@ -1,6 +1,6 @@
-# CS5610_Project 2
+# Jiayi-Zhu-project2
 
-A single-page Sudoku web application built with **React**, **React Router**, and the **Context API**.  
+For CS5610 Project2, a single-page Sudoku web application built with **React**, **React Router**, and the **Context API**.  
 This project extends the mock website from Project 1 into a functional browser game with randomized Sudoku boards, timer support, validation feedback, and responsive design.
 
 ---
