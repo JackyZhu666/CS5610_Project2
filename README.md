@@ -67,10 +67,14 @@ The app is built as a React single-page application and uses:
 ## Project Structure
 
 ```text
-jackie-zhu-project2/
+CS5610_Project2/
+├── README.md
+├── Single-Player-Sudoku.iml
 ├── package.json
+├── package-lock.json
 ├── vite.config.js
 ├── index.html
+├── node_modules
 ├── public/
 │   └── logo.svg
 └── src/
@@ -115,19 +119,21 @@ git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 ```
 
-### 2. Install dependencies
+### 2. Unzip the "node_modules.zip" for the node environment package
+
+### 3. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Start the development server
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-### 4. Open the app
+### 5. Open the app
 
 Open the URL shown in terminal (usually):
 
