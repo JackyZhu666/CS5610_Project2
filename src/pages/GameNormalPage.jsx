@@ -10,20 +10,25 @@ export default function GameNormalPage() {
   const { state, startNewGame, resetGame, selectCell, updateCell, showHint } = useSudoku();
 
   useEffect(() => {
-    startNewGame('normal');
-  }, [startNewGame]);
+    if (!state.currentGame || state.currentGame.mode !== 'normal') {
+      startNewGame('normal');
+    }
+  }, [state.currentGame, startNewGame]);
 
-  if (!state.currentGame || state.currentGame.mode !== 'normal') {
-    return null;
-  }
+  const isReady = state.currentGame && state.currentGame.mode === 'normal';
 
   return (
-      <div className="container">
-        <PageHero
-            title="Normal Sudoku"
-            subtitle="9×9 board with 28–30 cells filled to start."
-        />
+    <div className="container">
+      <PageHero
+        title="Normal Sudoku"
+        subtitle="9×9 board with 28–30 cells filled to start."
+      />
 
+      {!isReady ? (
+        <section className="content-card">
+          <p>Loading normal puzzle...</p>
+        </section>
+      ) : (
         <div className="game-layout">
           <section className="game-panel">
             <div className="game-topbar">
@@ -33,18 +38,18 @@ export default function GameNormalPage() {
             <StatusBanner isComplete={state.isComplete} />
 
             <SudokuBoard
-                game={state.currentGame}
-                selectedCell={state.selectedCell}
-                invalidCells={state.invalidCells}
-                hintCell={state.hintCell}
-                onSelect={selectCell}
-                onChange={updateCell}
+              game={state.currentGame}
+              selectedCell={state.selectedCell}
+              invalidCells={state.invalidCells}
+              hintCell={state.hintCell}
+              onSelect={selectCell}
+              onChange={updateCell}
             />
 
             <GameToolbar
-                onNewGame={() => startNewGame('normal')}
-                onReset={resetGame}
-                onHint={showHint}
+              onNewGame={() => startNewGame('normal')}
+              onReset={resetGame}
+              onHint={showHint}
             />
           </section>
 
@@ -55,6 +60,7 @@ export default function GameNormalPage() {
             <p>Board locks after a valid completion.</p>
           </aside>
         </div>
-      </div>
+      )}
+    </div>
   );
 }
