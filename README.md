@@ -119,7 +119,11 @@ git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 ```
 
-### 2. Unzip the "node_modules.zip" for the node environment package
+### 2. Unzip the "node_modules.zip"
+
+```bash
+to get the node environment package in this folder
+```
 
 ### 3. Install dependencies
 
